@@ -3,17 +3,20 @@
 class Solution {
 public:
     bool canJump(vector<int>& nums) {
-        
-        int max_jump = nums[0];
-
-        for (int i = 1; i < nums.size(); ++i) {
-
-            if (i > max_jump) {
-
+        int left=0,right=0;
+        int n=nums.size();
+        while(right<n-1){
+            int farthest=right;
+            for(int i=left;i<=right;i++){
+                farthest=max(farthest,i+nums[i]);
+            }
+            if(farthest==right){
                 return false;
             }
-            max_jump = std::max(max_jump, i + nums[i]);
+            left=left+1;
+            right=farthest;
         }
-        return true;
+        return true;
+        
     }
 };
