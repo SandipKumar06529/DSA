@@ -3,7 +3,10 @@ private:
     vector<int> nums;
     unordered_map<int, int> numIndex;
 public:
-    RandomizedSet() {}
+    RandomizedSet() {
+        nums.clear();
+        numIndex.clear();
+    }
     
     bool insert(int val) {
         if(numIndex.find(val)!= numIndex.end()){
