@@ -1,4 +1,5 @@
 class RandomizedSet {
+private:
     vector<int> nums;
     unordered_map<int, int> numIndex;
 public:
