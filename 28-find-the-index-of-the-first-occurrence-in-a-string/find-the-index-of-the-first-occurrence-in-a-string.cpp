@@ -1,13 +1,12 @@
 class Solution {
 public:
-    int strStr(string haystack, string needle) {
-        int m = haystack.length();
-        int n = needle.length();
-        for(int i=0; i<=m-n; i++){
-            if(haystack.substr(i,n)==needle){
-                return i;
-            }
+    int strStr(string haystack, string needle) {  
+        int pos = haystack.find(needle); 
+        if (haystack.find(needle) != string::npos) {
+            return pos; 
+        } else {
+            return -1; 
         }
-        return -1;
+      
     }
 };
