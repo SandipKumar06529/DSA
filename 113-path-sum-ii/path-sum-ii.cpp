@@ -21,7 +21,7 @@ public:
         currentpath.push_back(root->val);
         sum += root->val; 
 
-        if(sum == target &&!root->left && !root->right){ // check if the current path sum == target and path end node is leaf 
+        if(sum == target &&!root->left && !root->right){ // check if the current path sum == target and path end node is leaf ( this will not check the sum at each note)
             
             ans.push_back(currentpath);  // both condition satisfy then add it to ans 
 
