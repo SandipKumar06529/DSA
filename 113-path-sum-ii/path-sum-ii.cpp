@@ -14,32 +14,32 @@ public:
     vector<vector<int>>ans;
     vector<int>currentpath;
 
-    void dfs(TreeNode* root, int target){
+    void dfs(TreeNode* root, int target, int sum){
+        
         if(!root) return;
 
         currentpath.push_back(root->val);
-        target -= root->val;
+        sum += root->val; 
 
-        if(target==0 &&!root->left && !root->right){
+        if(sum == target &&!root->left && !root->right){ // check if the current path sum == target and path end node is leaf 
             
-            ans.push_back(currentpath);
+            ans.push_back(currentpath);  // both condition satisfy then add it to ans 
 
         }else{
         
-        pathSum(root->left, target); 
-        pathSum(root->right, target);
+        dfs(root->left, target, sum); 
+        dfs(root->right, target, sum);
 
         }
 
-        currentpath.pop_back();
+        currentpath.pop_back(); // backtracking
 
 
     }
-
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
-
-       dfs(root, targetSum);
-       return ans;
-
+        int sum =0; 
+        
+        dfs(root, targetSum, sum);
+        return ans;
     }
 };
