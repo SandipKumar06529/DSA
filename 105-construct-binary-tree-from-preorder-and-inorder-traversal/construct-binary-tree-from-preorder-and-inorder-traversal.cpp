@@ -36,7 +36,7 @@ private:
 
 
 public:
-    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {\
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
 
     preorderIndex = 0;
     inorderIndexMap.clear();
